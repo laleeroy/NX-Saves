@@ -1,11 +1,10 @@
-name: Update index.md
+name: Update Index
 
 on:
   push:
     branches:
       - main  
   workflow_dispatch:
-
 
 jobs:
   update_index:
@@ -23,13 +22,13 @@ jobs:
     - name: Run generate_index.py
       run: |
         python3 generate_index.py
-        git config --local user.email "Viren070@users.noreply.github.com"
-        git config --local user.name "Viren070"
-        git add index.md
+        git config --local user.email "laleeroy@users.noreply.github.com"
+        git config --local user.name "laleeroy"
+        git add docs/index.html
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
           echo "Pushing changes"
-          git commit -m "Update index.md"
+          git commit -m "Update Index"
           git push
         fi
